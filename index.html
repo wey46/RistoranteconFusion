@@ -97,6 +97,7 @@
         </div>
     </header>
 
+    <!-- reservation modal -->
     <div id="rsvmodal" class="modal fade" role="dialog">
         <div class="modal-dialog md-lg" role="content">
             <div class="modal-content">
@@ -116,27 +117,27 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio1" value="2"> 2
+                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio2" value="2"> 2
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio1" value="3"> 3
+                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio3" value="3"> 3
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio1" value="4"> 4
+                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio4" value="4"> 4
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio1" value="5"> 5
+                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio5" value="5"> 5
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio1" value="6"> 6
+                                            <input class="form-check-input" type="radio" name="guests" id="inlineRadio6" value="6"> 6
                                         </label>
                                     </div>
                             </div>
@@ -230,6 +231,9 @@
                     <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                    <button class="btn btn-danger btn-sm" id="carousel-button">
+                        <span id="carousel-button-icon" class="fa fa-pause"></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -408,7 +412,23 @@
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/tether/dist/js/tether.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- for tooltip disabled
+<script>
+    $(document).ready(function(){
+        $("#mycarousel").carousel({interval:2000});
+        $("#carousel-button").click(function(){
+            if($("#carousel-button").children("span").hasClass('fa-pause')){
+                $("#mycarousel").carousel('pause');
+                $("#carousel-button").children("span").removeClass('fa-pause');
+                $("#carousel-button").children("span").addClass('fa-play');
+            } else if ($("#carousel-button").children("span").hasClass('fa-play')){
+                $("#mycarousel").carousel('cycle');
+                $("#carousel-button").children("span").removeClass('fa-play');
+                $("#carousel-button").children("span").addClass('fa-pause');
+            }
+        });
+    });
+</script>
+<!-- for tooltips, disabled
     <script>
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
