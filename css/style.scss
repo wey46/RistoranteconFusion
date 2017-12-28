@@ -70,3 +70,20 @@ body{
     position: absolute;
     bottom: 0px;
 }
+
+#loginModal,#rsvmodal{
+    .modal-header{
+        background:$background-dark;
+        color: floralwhite;
+        .close {
+            color: floralwhite;
+            opacity: 1;
+        }
+    }
+    .modal-body{
+        background: $background-pale;
+    }
+    .modal-footer{
+        background: $background-light;
+    }
+}
